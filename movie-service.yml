@@ -1,0 +1,8 @@
+server:
+  port: ${PORT:8001}
+
+spring:
+  application:
+    name: movie-service
+
+message: Hello from movie-service
