@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: movieRoute
+          uri: lb://movie-service
+          predicates:
+            - Path=/movie/**
+
+        - id: catalogRoute
+          uri: lb://catalog-service
+          predicates:
+            - Path=/catalog/**
