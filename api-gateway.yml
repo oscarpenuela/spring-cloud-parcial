@@ -10,13 +10,14 @@ eureka:
 
 spring:
   cloud:
-    routes:
-      - id: movieRoute
-        uri: lb://movie-service
-        predicates:
-          - Path=/movies/**
+    gateway:
+      routes:
+        - id: movieRoute
+          uri: lb://movie-service
+          predicates:
+            - Path=/movies/**
 
-      - id: catalogRoute
-        uri: lb://catalog-service
-        predicates:
-          - Path=/catalog/**
+        - id: catalogRoute
+          uri: lb://catalog-service
+          predicates:
+            - Path=/catalog/**
